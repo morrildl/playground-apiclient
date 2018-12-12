@@ -105,6 +105,7 @@ func (api *API) initHTTPSClient() {
 		}
 		serverRoot := x509.NewCertPool()
 		serverRoot.AppendCertsFromPEM(serverCert)
+		tlsConfig.RootCAs = serverRoot
 	}
 
 	api.client = &http.Client{
